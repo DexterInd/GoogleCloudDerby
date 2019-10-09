@@ -1,6 +1,8 @@
 function DCHPUtilities(){
   const fs = require('fs')
   var self = this;
+  self.interface = 'wlan0';//Default to wlan0, 3b's use wlan1
+
   this.stripIPConfig = function(path, callback){
     var interfaceFound = false
     var cloudDerbyComments = false
@@ -17,6 +19,12 @@ function DCHPUtilities(){
           interfaceFound = true
           lines.splice(i, 1);
           i--;
+        }
+        else if(lines[i].includes('interface wlan1')){
+          interfaceFound = true
+          lines.splice(i, 1);
+          i--;
+          self.interface = 'wlan1'
         }
         else if(lines[i].startsWith('interface')){
           interfaceFound = false
@@ -70,7 +78,7 @@ function DCHPUtilities(){
       dhcpcdConfig = [
         '#Begin IP Configuration',
         '#Using DHCP, uncomment the following lines to set a static IP.',
-        `interface wlan0`,
+        `interface ${self.interface}`,
         `noipv6`,
         `static ip_address=${ip}/24`,
         `static routers=${gateway}`,
@@ -82,7 +90,7 @@ function DCHPUtilities(){
       dhcpcdConfig = [
         '#Begin IP Configuration',
         '#Using DHCP, uncomment the following lines to set a static IP.',
-        `#interface wlan0`,
+        `#interface ${self.interface}`,
         `#noipv6`,
         `#static ip_address=192.168.0.88/24`,
         `#static routers=192.168.0.1`,
@@ -100,19 +108,3 @@ function DCHPUtilities(){
 }
 
 module.exports = new DCHPUtilities()
-
-
-
-
-// dhcpUtil.replaceIPConfig('D:/network/dhcpcd.conf', true, '192.168.0.30', '192.168.0.1', '8.8.8.8', function(err, val){
-//   console.log(err, val)
-// })
-
-// dhcpUtil.replaceIPConfig('D:/network/dhcpcd.conf', false, function(err, val){
-//   console.log(err, val)
-// })
-
-
-// dhcpUtil.stripIPConfig('D:/network/dhcpcd.conf', function(err, val){
-//   console.log(err, val)
-// })

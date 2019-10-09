@@ -3,7 +3,7 @@ A simple script to automate the setup of the GoPiGo3 for the Cloud Derby.
 
 ## Requirements
 - MacOS or Windows
-- Raspberry Pi 3B+
+- Raspberry Pi 3B+ or 3B
 - Tested on nodejs v12.0.0
 
 ## Installation
