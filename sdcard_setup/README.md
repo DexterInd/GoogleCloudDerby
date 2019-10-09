@@ -19,10 +19,7 @@ A simple script to automate the setup of the GoPiGo3 for the Cloud Derby.
 
 ## Tasks performed
 - Writes hostname to carYY to the SD card where YY is the car number
-- Creates a blank ssh.txt file on the SD card (Potentially optionally)
 - Writes the WPA Supplicant file for configuring WiFI SSID and PSK
-- Fetches initial DHCP IP address assigned
-- Sets a static IP where last octet is the car number
-- Sets Gateway and DNS
-- Fetches the python test script
+- Optionally configures a static IP with the last octet being the car number
+- Optionally configures DHCP and fetches the IP address based on hostname
 - Runs the python test script
