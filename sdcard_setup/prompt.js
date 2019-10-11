@@ -9,7 +9,7 @@ function Prompt() {
     stdin.resume()
     stdin.setEncoding('utf8')
 
-    process.stdout.write(message)
+    process.stdout.write('\n'+message)
     var keyLog = []
 
     stdin.on('data', function keyCallback(key) {
@@ -38,7 +38,7 @@ function Prompt() {
     stdin.resume()
     stdin.setEncoding('utf8')
 
-    console.log(message)
+    console.log('\n'+message)
     stdin.once('data', function(key) {
       if (key == '\u0003') {
         process.exit()
@@ -58,7 +58,7 @@ function Prompt() {
     stdin.resume()
     stdin.setEncoding('utf8')
 
-    message = message + ( _default ? ' [yes]: ' : ' [no]: ')
+    message = '\n'+ message + ( _default ? ' [yes]: ' : ' [no]: ')
     process.stdout.write(message)
     var keyLog = []
     stdin.on('data', function keyCallback(key) {
