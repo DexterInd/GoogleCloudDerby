@@ -1,10 +1,22 @@
 # GoPiGo3 Setup for Cloud Derby
-A simple script to automate the setup of the GoPiGo3 for the Cloud Derby.
+A simple script to automate the setup of the GoPiGo3 for Cloud Derby.
 
 ## Requirements
 - MacOS or Windows
 - Raspberry Pi 3B+ or 3B
 - Tested on nodejs v12.0.0
+
+## Pre-Built Binaries
+Pre-built binaries can be used instead of requiring Node.js to be installed. These binaries are located in `./bin/` and are available for MacOS, Windows, and Linux. Ensure the SD Card is freshly imaged an inserted into the computer then run:
+
+###### Windows
+`bin\cloudderby_setup-win.exe` or simply double-click.
+
+###### MacOS
+`./bin/cloudderby_setup-macos`
+
+###### Linux
+`./bin/cloudderby_setup-linux`
 
 ## Installation
 `npm install`
@@ -13,8 +25,8 @@ A simple script to automate the setup of the GoPiGo3 for the Cloud Derby.
 - Update the SSID and password for WiFi at the top of index.js
 - Update the URL for the test script if it has changed at the top of index.js
 
-## Running
-- Ensure the SD is freshly imaged and inserted into the computer
+## Running From Source
+- Ensure the SD Card is freshly imaged and inserted into the computer
 - run `node index.js`
 
 ## Building Binaries
