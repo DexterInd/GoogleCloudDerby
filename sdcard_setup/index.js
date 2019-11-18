@@ -214,9 +214,10 @@ Press any key when the antenna LED is lit or ctrl+c to abort.
       else {
         async.waterfall([
           setDHCP,
+          createWPASupplicant,
           promptInstructions,
-          reboot,
-          pingHostName
+          pingHostName,
+          reboot
         ], function(err, success){
           callback(err)
         });
