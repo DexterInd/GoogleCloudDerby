@@ -1,0 +1,20 @@
+{
+  "name": "cloudderby_setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "pkg . --out-path=bin"
+  },
+  "pkg": {
+    "out-path": "./bin/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.1.0",
+    "ssh-exec": "^2.0.0"
+  }
+}
